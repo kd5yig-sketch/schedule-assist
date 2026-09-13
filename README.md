@@ -1,13 +1,13 @@
 # Schedule Assist
 
-A local, offline kanban board — boards, swimlanes, columns, drag-and-drop
+A local, offline task board — boards, swimlanes, columns, drag-and-drop
 cards, labels, checklists, due dates, and a per-card Pomodoro timer with
 time tracking.
 
-Built for people who want a full-featured kanban workflow without sending
-their schedule to a cloud service: there are no network calls, no account,
-no telemetry. Everything is stored in a single SQLite file in your home
-directory, and the app runs as a native desktop window via
+Built for people who want a full-featured board-based workflow without
+sending their schedule to a cloud service: there are no network calls, no
+account, no telemetry. Everything is stored in a single SQLite file in your
+home directory, and the app runs as a native desktop window via
 [pywebview](https://pywebview.flowrl.com/).
 
 ## Features
