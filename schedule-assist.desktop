@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Schedule Assist
+Comment=Local kanban board with Pomodoro time tracking
+Exec=/home/jeff/Schedule-Assist/run.sh
+Path=/home/jeff/Schedule-Assist
+Terminal=false
+Categories=Office;ProjectManagement;

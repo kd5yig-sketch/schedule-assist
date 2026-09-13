@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Schedule Assist</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="app">
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="brand">Schedule Assist</span>
+      <div class="select-wrap">
+        <select id="board-select" class="board-select"></select>
+      </div>
+      <button id="new-board-btn" class="icon-btn" title="New board">+ Board</button>
+    </div>
+    <div class="topbar-right">
+      <div id="today-summary" class="today-summary" title="Time tracked today"></div>
+      <button id="archive-btn" class="icon-btn">Archive</button>
+      <button id="add-column-btn" class="icon-btn">+ Column</button>
+      <button id="add-swimlane-btn" class="icon-btn">+ Swimlane</button>
+      <button id="settings-btn" class="icon-btn" title="Pomodoro settings">⚙</button>
+    </div>
+  </header>
+
+  <main id="board-scroll" class="board-scroll">
+    <div id="board-grid" class="board-grid"></div>
+  </main>
+
+</div>
+
+<!-- Card detail modal -->
+<div id="card-modal" class="modal-overlay hidden">
+  <div class="modal card-modal">
+    <div class="modal-header">
+      <input id="card-title-input" class="card-title-input" placeholder="Card title" />
+      <button id="card-close-btn" class="icon-btn">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-row">
+        <label>Due date</label>
+        <input id="card-due-input" type="date" />
+      </div>
+
+      <div class="modal-row">
+        <label>Labels</label>
+        <div id="card-labels" class="card-labels"></div>
+      </div>
+
+      <div class="modal-row">
+        <label>Description</label>
+        <textarea id="card-desc-input" rows="4" placeholder="Add a description..."></textarea>
+      </div>
+
+      <div class="modal-row">
+        <label>Checklist <span id="checklist-progress"></span></label>
+        <div id="checklist-items" class="checklist-items"></div>
+        <form id="checklist-add-form" class="inline-add-form">
+          <input id="checklist-add-input" placeholder="Add checklist item" autocomplete="off" />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+
+      <div class="modal-row">
+        <label>Time tracking <span id="card-time-total"></span></label>
+        <div class="timer-controls">
+          <button id="timer-start-btn" class="primary-btn">▶ Start Pomodoro</button>
+          <button id="timer-stop-btn" class="danger-btn hidden">■ Stop</button>
+          <span id="timer-display" class="timer-display"></span>
+        </div>
+        <div id="time-log-list" class="time-log-list"></div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button id="card-duplicate-btn" class="secondary-btn">Duplicate…</button>
+      <button id="card-archive-btn" class="secondary-btn">Archive</button>
+      <button id="card-delete-btn" class="danger-btn">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- Archive panel -->
+<div id="archive-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Archived cards</h3>
+      <button id="archive-close-btn" class="icon-btn">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="archived-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Settings modal -->
+<div id="settings-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Pomodoro settings</h3>
+      <button id="settings-close-btn" class="icon-btn">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-row">
+        <label>Work minutes</label>
+        <input id="setting-work" type="number" min="1" max="180" />
+      </div>
+      <div class="modal-row">
+        <label>Short break minutes</label>
+        <input id="setting-short-break" type="number" min="1" max="60" />
+      </div>
+      <div class="modal-row">
+        <label>Long break minutes</label>
+        <input id="setting-long-break" type="number" min="1" max="60" />
+      </div>
+      <div class="modal-row">
+        <label>Rounds before long break</label>
+        <input id="setting-rounds" type="number" min="1" max="12" />
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="settings-save-btn" class="primary-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Floating pomodoro widget -->
+<div id="pomodoro-widget" class="pomodoro-widget hidden">
+  <div class="pomodoro-card-title" id="pomodoro-card-title"></div>
+  <div class="pomodoro-time" id="pomodoro-time"></div>
+  <div class="pomodoro-actions">
+    <button id="pomodoro-pause-btn">Pause</button>
+    <button id="pomodoro-stop-btn">Stop</button>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
